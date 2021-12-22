@@ -1,12 +1,12 @@
 import React from "react";
 import { Layout, Menu } from "antd";
-import { useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 
 import routes from "routes";
 
 const { Header, Content } = Layout;
 
-const HeaderContentLayout = ({ children }) => {
+const HeaderContent = ({ children, ...rest }) => {
   const history = useHistory();
   return (
     <Layout>
@@ -47,6 +47,19 @@ const HeaderContentLayout = ({ children }) => {
       </Content>
     </Layout>
   );
+};
+
+const HeaderContentLayout = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) => (
+        <HeaderContent>
+          <Component {...props} />
+        </HeaderContent>
+      )} 
+    />
+  )
 };
 
 export default HeaderContentLayout;

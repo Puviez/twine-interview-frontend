@@ -19,21 +19,19 @@ const pages = [
 const App = () => {
   return (
     <div className="page-wrapper" style={{ backgroundColor: "ghostwhite" }}>
-      <HeaderContentLayout>
-        <Switch>
-          {pages.map(({ exact, path, component: Component }) => {
-            return (
-              <Route
-                key={path}
-                exact={exact}
-                path={path}
-                render={() => <Component />}
-              />
-            );
-          })}
-          <Redirect to={routes.dashboard} />
-        </Switch>
-      </HeaderContentLayout>
+      <Switch>
+        {pages.map(({ exact, path, component: Component }) => {
+          return (
+            <Route
+              key={path}
+              exact={exact}
+              path={path}
+              render={() => <HeaderContentLayout component={Component}/>}
+            />
+          );
+        })}
+        <Redirect to={routes.dashboard} />
+      </Switch>
     </div>
   );
 };
