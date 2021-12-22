@@ -12,8 +12,7 @@ const HeaderContentLayout = ({ children }) => {
   return (
     <Layout>
       <Switch>
-        <Route path={routes.cpoHqPolls} component={AppSider} />
-        <Route path={routes.cpoHqForum} component={AppSider} />
+        <Route path={[routes.cpoHqPolls, routes.cpoHqForum]} component={AppSider} />
       </Switch>
       <Layout>
         <Header>
