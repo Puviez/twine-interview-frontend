@@ -1,0 +1,11 @@
+.attrition-tab {
+  height: 100%;
+  min-height: 500px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
