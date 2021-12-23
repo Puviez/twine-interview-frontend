@@ -1,9 +1,10 @@
 import React from 'react'
 import { Row, Col } from 'antd';
-import { UpOutlined, DownOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import { UpOutlined, DownOutlined, DeleteOutlined } from '@ant-design/icons'
 
 import './style.css'
 import { CounterButton } from 'components/CounterButton';
+import { EditCounterNameDialog } from 'components/EditCounterNameDialog';
 
 export const Counter = ({ id, counterName, counterValue, updateCounter, removeCounter }) => {
   const editCounterValue = (isIncrement) => {
@@ -12,6 +13,14 @@ export const Counter = ({ id, counterName, counterValue, updateCounter, removeCo
       id,
       counterName,
       counterValue: newCounterValue
+    })
+  }
+
+  const editCounterName = (newCounterName) => {
+    updateCounter({
+      id,
+      counterName: newCounterName,
+      counterValue
     })
   }
 
@@ -36,7 +45,7 @@ export const Counter = ({ id, counterName, counterValue, updateCounter, removeCo
               <CounterButton icon={<DeleteOutlined />} onClick={() => removeCounter(id)} />
             </Row>
             <Row>
-              <CounterButton icon={<EditOutlined />} size="small" onClick={() => removeCounter()} />
+              <EditCounterNameDialog counterName={counterName} editCounterName={editCounterName}/>
             </Row>
           </Col>
       </Row>
