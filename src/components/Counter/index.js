@@ -1,9 +1,13 @@
 import React from 'react'
-import { Row, Col } from 'antd'
-import { UpOutlined, DownOutlined, DeleteOutlined } from '@ant-design/icons'
+import { Row, Col, Modal } from 'antd'
+import { UpOutlined, DownOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons'
+
 import { CounterButton } from 'components/CounterButton'
 import { EditCounterNameDialog } from 'components/EditCounterNameDialog'
+
 import './style.css'
+
+const { confirm } = Modal;
 
 export const Counter = ({
 	id,
@@ -26,6 +30,17 @@ export const Counter = ({
 			id,
 			counterName: newCounterName,
 			counterValue
+		})
+	}
+
+	const showDeleteConfirm = (idToDelete) => {
+		confirm({
+			title: "Are you sure you want to delete your counter?",
+			icon: <ExclamationCircleOutlined />,
+			content: "Your counter will be permanently deleted.",
+			onOk() {
+				removeCounter(idToDelete)
+			}
 		})
 	}
 
@@ -55,7 +70,7 @@ export const Counter = ({
 					<Row>
 						<CounterButton
 							icon={<DeleteOutlined />}
-							onClick={() => removeCounter(id)}
+							onClick={() => showDeleteConfirm(id)}
 						/>
 					</Row>
 					<Row>
