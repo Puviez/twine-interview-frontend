@@ -5,7 +5,7 @@ import * as GeneralHelper from '../../helper/GeneralHelper'
 
 import { CounterContext } from 'context/CounterContext'
 
-import { Counter } from 'components/Counter/Counter'
+import { Counter } from 'components/Counter'
 
 import './style.css'
 

@@ -3,7 +3,7 @@ import { Layout, Menu } from "antd";
 import { Switch, Route, useHistory } from "react-router-dom";
 
 import routes from "routes";
-import { AppSider } from "components/AppSider/AppSider";
+import { AppSider } from "components/AppSider";
 
 const { Header, Content } = Layout;
 

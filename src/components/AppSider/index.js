@@ -1,6 +1,6 @@
 import React from 'react'
 import { Layout } from "antd";
-import { CounterContainer } from 'components/CounterContainer/CounterContainer';
+import { CounterContainer } from 'components/CounterContainer';
 
 import './style.css'
 
