@@ -22,6 +22,7 @@ export const EditCounterNameDialog = ({ counterName, editCounterName }) => {
 	}
 
 	const handleInputChange = (e) => {
+    // Disable the save button if the user hasn't entered a new name
 		e.target.value ? setIsSaveDisabled(false) : setIsSaveDisabled(true)
 		setNewCounterName(e.target.value)
 	}

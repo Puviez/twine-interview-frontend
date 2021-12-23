@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typography } from 'antd'
+
 import './style.css'
 
 const { Title } = Typography
@@ -10,6 +11,7 @@ export const AttritionHeader = ({
 	rehireEligibility,
 	voluntary
 }) => {
+  // Set box colour based on rehire_eligibility and voluntary
 	const getVolunteerBoxStyle = () => {
 		if (rehireEligibility) {
 			return voluntary ? 'voluntary' : 'involuntary'

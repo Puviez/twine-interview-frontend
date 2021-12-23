@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { Button, Row, Col } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
+
 import { Counter } from 'components/Counter'
 import { CounterContext } from 'context/CounterContext'
+
 import * as GeneralHelper from 'helper/GeneralHelper'
 import './style.css'
 
 export const CounterContainer = () => {
+	// Get counters from localStorage or return an empty array if there are none
 	const [counters, setCounters] = useState(
 		() =>
-			JSON.parse(window.localStorage.getItem('counters')) || [
-				{ id: 'test', counterName: 'Test Name', counterValue: 3 }
-			]
+			JSON.parse(window.localStorage.getItem('counters')) || []
 	)
 
 	const addCounter = () => {

@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { Modal, Typography, Input, Button } from 'antd'
+
 import { AttritionHeader } from 'components/AttritionHeader'
+
 import './style.css'
 
 const { Text, Link } = Typography
 
+// Abstracted to component for cleaner conditional rendering
 const EmailInput = ({ name, handleInputChange, sendEmail }) => {
 	return (
 		<div className="email-input">

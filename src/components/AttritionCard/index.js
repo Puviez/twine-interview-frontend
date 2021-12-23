@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Card } from 'antd'
+
 import { AttritionHeader } from 'components/AttritionHeader'
 import { AttritionDialog } from 'components/AttritionDialog'
 

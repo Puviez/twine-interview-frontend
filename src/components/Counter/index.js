@@ -33,6 +33,7 @@ export const Counter = ({
 		})
 	}
 
+	// Check with user before deleting a counter
 	const showDeleteConfirm = (idToDelete) => {
 		confirm({
 			title: "Are you sure you want to delete your counter?",
