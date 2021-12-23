@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button, Row, Col } from 'antd';
-import { UpOutlined, DownOutlined, DeleteOutlined } from '@ant-design/icons'
+import { Row, Col } from 'antd';
+import { UpOutlined, DownOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons'
 
 import './style.css'
+import { CounterButton } from 'components/CounterButton';
 
 export const Counter = ({ id, counterName, counterValue, updateCounter, removeCounter }) => {
   const editCounterValue = (isIncrement) => {
     const newCounterValue = isIncrement ? counterValue + 1 : counterValue - 1
-    console.log(newCounterValue)
     updateCounter({
       id,
       counterName,
@@ -26,17 +26,17 @@ export const Counter = ({ id, counterName, counterValue, updateCounter, removeCo
           </Row>
           <Row justify="center" align="middle">
             <Col>
-              <Button className="counter-button" shape="circle" icon={<UpOutlined />} size="small" onClick={() => editCounterValue(true)}></Button>
-              <Button className="counter-button" shape="circle" icon={<DownOutlined />} size="small" onClick={() => editCounterValue(false)}></Button>
+              <CounterButton icon={<UpOutlined />} onClick={() => editCounterValue(true)} />
+              <CounterButton icon={<DownOutlined />} onClick={() => editCounterValue(false)} />
             </Col>
           </Row>
         </Col>
         <Col>
             <Row>
-              <Button className="counter-button" shape="circle" icon={<DeleteOutlined />} size="small" onClick={() => removeCounter()}></Button>
+              <CounterButton icon={<DeleteOutlined />} onClick={() => removeCounter(id)} />
             </Row>
             <Row>
-              <Button className="counter-button" shape="circle" icon={<DeleteOutlined />} size="small" onClick={() => removeCounter()}></Button>
+              <CounterButton icon={<EditOutlined />} size="small" onClick={() => removeCounter()} />
             </Row>
           </Col>
       </Row>
