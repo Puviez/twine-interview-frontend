@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Spin, Typography } from 'antd'
+
 import { AttritionCard } from 'components/AttritionCard'
+
 import * as GeneralHelper from 'helper/GeneralHelper'
 import './style.css'
 
@@ -11,18 +13,26 @@ export const AttritionTab = ({ rehireEligible }) => {
 	const [timeline, setTimeline] = useState({})
 
 	useEffect(() => {
+    let isMounted = true
+
 		const fetchEmployees = async () => {
 			// Show loading state in UI
 			setIsLoading(true)
 			// Simulate api call
 			const employeesList = await apiSimulation(rehireEligible)
-			// Generate the timeline using the returned list of employees
-			generateTimeline(employeesList)
-			// Remove loading state and display results
-			setIsLoading(false)
+			// Generate the timeline using the returned list of employees only when component is mounted
+			if (isMounted) {
+        generateTimeline(employeesList)
+        // Remove loading state and display results
+        setIsLoading(false)
+      }
 		}
-		// Fetch Employees when component is mounted
-		fetchEmployees()
+		// Fetch Employees
+    fetchEmployees()
+
+    return () => {
+      isMounted = false
+    }
 	}, [rehireEligible])
 
 	// Dummy function to simulate api call
@@ -36,6 +46,7 @@ export const AttritionTab = ({ rehireEligible }) => {
 		} else {
 			employeesList = GeneralHelper.rehireUnknownEmployees
 		}
+    // Time delay to simulate fetch/axios call
 		return new Promise((resolve) =>
 			setTimeout(() => {
 				resolve(employeesList)
@@ -44,6 +55,12 @@ export const AttritionTab = ({ rehireEligible }) => {
 	}
 
 	const generateTimeline = (employeesList) => {
+    /* 
+    Storing the list of employees as an object allows us to 
+    create the timline by first looping through the keys (dates)
+    and then the values of each key (array of employees 
+    terminated on that date.)
+    */
 		const timelineObj = {}
 		for (const employee of employeesList) {
 			// I am assuming that the list of employees is sorted by date (by the api)
