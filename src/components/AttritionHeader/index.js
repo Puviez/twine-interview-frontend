@@ -8,10 +8,7 @@ const { Title } = Typography;
 export const AttritionHeader = ({ name, position, rehireEligibility, voluntary}) => {
   const getVolunteerBoxStyle = () => {
     if (rehireEligibility) {
-      if (voluntary) {
-        return 'voluntary'
-      }
-      return 'involuntary'
+      return voluntary ? 'voluntary' : 'involuntary'
     }
     return ''
   }

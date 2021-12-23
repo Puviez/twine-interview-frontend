@@ -3,6 +3,10 @@
   min-height: 500px;
 }
 
+.attrition-date {
+  margin: 8px auto;
+}
+
 .progress-container {
   display: flex;
   justify-content: center;

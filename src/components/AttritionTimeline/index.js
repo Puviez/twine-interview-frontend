@@ -11,10 +11,10 @@ export const AttritionTimeline = () => {
         <AttritionTab rehireEligible="true"/>
       </TabPane>
       <TabPane tab="Rehire Ineligible"  key="2">
-        Rehire Ineligible
+        <AttritionTab rehireEligible="false"/>
       </TabPane>
       <TabPane tab="Rehire Unknown"  key="3">
-        Rehire Unknown
+        <AttritionTab rehireEligible="unknown"/>
       </TabPane>
     </Tabs>
   )

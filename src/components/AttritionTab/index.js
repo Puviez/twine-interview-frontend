@@ -1,37 +1,40 @@
 import React, { useState, useEffect } from 'react'
-import { Spin } from 'antd';
+import { Spin, Typography} from 'antd';
 import * as GeneralHelper from 'helper/GeneralHelper'
 
 import './style.css'
+
+import { AttritionCard } from 'components/AttritionCard';
+
+const { Title } = Typography;
 
 export const AttritionTab = ({ rehireEligible }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [timeline, setTimeline] = useState({})
 
   useEffect(() => {
+    const fetchEmployees = async () => {
+      // Show loading state in UI
+      setIsLoading(true)
+      // Simulate api call
+      await apiSimulation()
+      // Simulate api response (For simplicity I'm not including error handling and assuming the response comes through properly)
+      let employeesList
+      if (rehireEligible === 'true') {
+        employeesList = GeneralHelper.rehireEligibleEmployees
+      } else if (rehireEligible === 'false') {
+        employeesList = GeneralHelper.rehireInellgibleEmployees
+      } else {
+        employeesList = GeneralHelper.rehireUnknownEmployees
+      }
+      // Generate the timeline using the returned list of employees
+      generateTimeline(employeesList)
+      // Remove loading state and display results
+      setIsLoading(false)
+    }
       // Fetch Employees when component is mounted
       fetchEmployees()
-  }, [])
-
-  const fetchEmployees = async () => {
-    // Show loading state in UI
-    setIsLoading(true)
-    // Simulate api call
-    await apiSimulation()
-    // Simulate api response (For simplicity I'm not including error handling and assuming the response comes through properly)
-    let employeesList
-    if (rehireEligible === 'true') {
-      employeesList = GeneralHelper.rehireEligibleEmployees
-    } else if (rehireEligible === 'false') {
-      employeesList = GeneralHelper.rehireInellgibleEmployees
-    } else {
-      employeesList = GeneralHelper.rehireUnknownEmployees
-    }
-    // Generate the timeline using the returned list of employees
-    generateTimeline(employeesList)
-    // Remove loading state and display results
-    setIsLoading(false)
-  }
+  }, [rehireEligible])
 
   // Dummy function to simulate api call
   const apiSimulation = () => {
@@ -61,11 +64,11 @@ export const AttritionTab = ({ rehireEligible }) => {
         }
         {Object.keys(timeline).map((date) => {
           return (
-            <div>
-              <p>{date}</p>
+            <div key={date}>
+              <Title className="attrition-date" level={4}>{date}</Title>
               {timeline[date].map((employee) => {
                 return (
-                  <div>{employee.name}</div>
+                  <AttritionCard employeeDetails={employee} key={employee.id}/>
                 )
               })}
             </div>

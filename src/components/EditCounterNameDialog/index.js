@@ -30,7 +30,7 @@ export const EditCounterNameDialog = ({ counterName, editCounterName }) => {
   return (
     <>
       <CounterButton icon={<EditOutlined />} size="small" onClick={() => openDialog()} />
-      <Modal title="Edit Counter Name" visible={isDialogVisible} onOk={saveCounterName} okText={"Save"}maskClosable={false} onCancel={closeDialog} destroyOnClose={true} okButtonProps={{ disabled: isSaveDisabled }}>
+      <Modal title="Edit Counter Name" visible={isDialogVisible} onOk={saveCounterName} okText={"Save"} maskClosable={false} onCancel={closeDialog} destroyOnClose={true} okButtonProps={{ disabled: isSaveDisabled }}>
         <Input placeholder={"Counter Name"} onChange={handleInputChange}/>
       </Modal>
     </>
