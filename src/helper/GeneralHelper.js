@@ -43,7 +43,7 @@ export const rehireEligibleEmployees = [
 	},
 	{
 		id: 2,
-		name: 'SusanSusan',
+		name: 'Susan',
 		position: 'Senior Software Engineer',
 		rehire_eligible: true,
 		voluntary: true,

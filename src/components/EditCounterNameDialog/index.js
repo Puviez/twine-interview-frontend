@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, Input } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
-
 import { CounterButton } from 'components/CounterButton'
 
 export const EditCounterNameDialog = ({ counterName, editCounterName }) => {

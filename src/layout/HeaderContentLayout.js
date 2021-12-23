@@ -1,9 +1,8 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
 import { Switch, Route, useHistory } from 'react-router-dom'
-
-import routes from 'routes'
 import { AppSider } from 'components/AppSider'
+import routes from 'routes'
 
 const { Header, Content } = Layout
 

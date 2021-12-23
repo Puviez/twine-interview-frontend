@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Spin, Typography } from 'antd'
-import * as GeneralHelper from 'helper/GeneralHelper'
-
-import './style.css'
-
 import { AttritionCard } from 'components/AttritionCard'
+import * as GeneralHelper from 'helper/GeneralHelper'
+import './style.css'
 
 const { Title } = Typography
 

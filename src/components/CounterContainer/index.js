@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Row, Col } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
-import * as GeneralHelper from '../../helper/GeneralHelper'
-
-import { CounterContext } from 'context/CounterContext'
-
 import { Counter } from 'components/Counter'
-
+import { CounterContext } from 'context/CounterContext'
+import * as GeneralHelper from 'helper/GeneralHelper'
 import './style.css'
 
 export const CounterContainer = () => {

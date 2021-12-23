@@ -1,10 +1,9 @@
 import React from 'react'
 import { Row, Col } from 'antd'
 import { UpOutlined, DownOutlined, DeleteOutlined } from '@ant-design/icons'
-
-import './style.css'
 import { CounterButton } from 'components/CounterButton'
 import { EditCounterNameDialog } from 'components/EditCounterNameDialog'
+import './style.css'
 
 export const Counter = ({
 	id,
