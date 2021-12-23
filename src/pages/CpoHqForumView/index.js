@@ -1,14 +1,14 @@
-import React from "react";
-import { Typography } from "antd";
+import React from 'react'
+import { Typography } from 'antd'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 const CpoHqForumView = () => {
-  return (
-    <div>
-      <Title level={1}>CPOHQ Forum</Title>
-    </div>
-  );
-};
+	return (
+		<div>
+			<Title level={1}>CPOHQ Forum</Title>
+		</div>
+	)
+}
 
-export default CpoHqForumView;
+export default CpoHqForumView

@@ -1,16 +1,16 @@
-import React from "react";
-import { Typography } from "antd";
-import { AttritionTimeline } from "components/AttritionTimeline";
+import React from 'react'
+import { Typography } from 'antd'
+import { AttritionTimeline } from 'components/AttritionTimeline'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 const DashboardView = () => {
-  return (
-    <div>
-      <Title level={1}>DASHBOARD</Title>
-      <AttritionTimeline />
-    </div>
-  );
-};
+	return (
+		<div>
+			<Title level={1}>DASHBOARD</Title>
+			<AttritionTimeline />
+		</div>
+	)
+}
 
-export default DashboardView;
+export default DashboardView

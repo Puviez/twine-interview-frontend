@@ -1,13 +1,13 @@
-import React from "react";
-import { Typography } from "antd";
+import React from 'react'
+import { Typography } from 'antd'
 
-const { Title } = Typography;
+const { Title } = Typography
 const ExplorerView = () => {
-  return (
-    <div>
-      <Title level={1}>EXPLORER</Title>
-    </div>
-  );
-};
+	return (
+		<div>
+			<Title level={1}>EXPLORER</Title>
+		</div>
+	)
+}
 
-export default ExplorerView;
+export default ExplorerView

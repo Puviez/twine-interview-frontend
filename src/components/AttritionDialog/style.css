@@ -1,8 +1,9 @@
-.profile-link, .email-input {
-  margin: 24px 0px;
+.profile-link,
+.email-input {
+	margin: 24px 0px;
 }
 
 .send-button {
-  text-align: right;
-  margin-top: 8px;
+	text-align: right;
+	margin-top: 8px;
 }
