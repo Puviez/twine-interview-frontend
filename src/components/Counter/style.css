@@ -1,5 +1,8 @@
 .counter-name {
   color: white;
+  width: 128px;
+  max-width: 128px;
+  text-align: center;
 }
 
 .counter-button {
